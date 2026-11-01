@@ -12,203 +12,299 @@
 <link rel="canonical" href="https://somersetnomad.github.io/The-Solo-Mum-Route-Planner/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ground:#F3F1EC; --paper:#FFFFFF; --ink:#22303A; --muted:#4A5560;
-  --teal:#2F6F62; --teal-dark:#245A4F; --gold:#E8B04B; --line:#D9D4CA;
+  --paper:#F4F3F6;       /* cool lilac-grey ground */
+  --sheet:#FFFFFF;
+  --ink:#231F2E;         /* aubergine black */
+  --soft:#5A5468;        /* secondary text, 7:1 on paper */
+  --plum:#5B3F7A;        /* action colour */
+  --plum-deep:#45305E;
+  --mist:#DCD6E4;        /* rules and route line */
+  --sage:#E3EAE5;        /* ledger tint */
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,sans-serif;
+  --gutter:clamp(20px,4vw,48px);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.6}
-a{color:var(--teal)}
-a:hover{color:var(--teal-dark)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.1;margin:0}
-h1{font-size:clamp(40px,7vw,68px)}
-h2{font-size:clamp(30px,4.5vw,44px);margin-bottom:20px}
-h3{font-size:24px;margin-bottom:8px}
-p{margin:0 0 16px}
-.eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
-header.top{padding:18px 0;border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
-.btn{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;font-weight:700;padding:16px 28px;border-radius:999px;min-height:48px;transition:background .15s}
-.btn:hover{background:var(--teal-dark);color:#fff}
-.btn.small{padding:10px 20px;font-size:15px}
-.hero{padding:72px 0 64px}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:center}
-.hero p.lead{font-size:21px;color:var(--muted);margin:24px 0 32px}
-.price-line{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.price{font-family:"DM Serif Display",serif;font-size:40px}
-.small-note{font-size:15px;color:var(--muted);margin-top:14px}
-.cover{background:var(--ink);color:var(--ground);border-left:16px solid var(--teal);border-radius:8px 18px 18px 8px;padding:44px 36px;aspect-ratio:3/4;display:flex;flex-direction:column;gap:16px;box-shadow:18px 20px 0 #C9C2B4;max-width:380px;justify-self:center;width:100%}
-.cover .tag{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
-.cover .title{font-family:"DM Serif Display",serif;font-size:42px;line-height:1.02}
-.cover .sub{color:#D6DADD}
-.cover .foot{margin-top:auto;font-size:15px;color:#D6DADD}
-section{padding:64px 0}
-section.alt{background:var(--paper)}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px}
-section.alt .card{background:var(--ground)}
-.parts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 32px}
-.parts li{padding:14px 0;border-bottom:1px solid var(--line)}
-.parts strong{display:block}
-.parts span{color:var(--muted);font-size:16px}
-table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:12px;overflow:hidden;font-size:16px}
-th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
-th{background:var(--ink);color:var(--ground);font-weight:600}
-tr.total td{font-weight:700}
-.table-box{overflow-x:auto}
-.callout{background:var(--gold);border-radius:16px;padding:24px 28px;margin-top:24px;font-weight:600}
-details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
-summary{cursor:pointer;font-weight:700}
-details p{margin:12px 0 0}
-.cta{text-align:center;background:var(--ink);color:var(--ground)}
-.cta h2{color:var(--ground)}
-.cta p{color:#D6DADD;max-width:640px;margin:0 auto 28px}
-.cta .btn{background:var(--gold);color:var(--ink)}
-.cta .btn:hover{background:#F0C46E;color:var(--ink)}
-footer{padding:36px 0;font-size:14px;color:var(--muted)}
-footer p{margin-bottom:8px}
-@media (max-width:800px){
-  .hero .wrap{grid-template-columns:minmax(0,1fr)}
-  .grid3,.parts{grid-template-columns:minmax(0,1fr)}
-  .hero{padding:48px 0}
-  section{padding:48px 0}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--plum);text-underline-offset:3px}
+a:hover{color:var(--plum-deep)}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:2px}
+p{margin:0 0 1em}
+
+/* Grid */
+.grid{max-width:1200px;margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.span-all{grid-column:1 / -1}
+
+/* Header */
+.masthead{border-bottom:1px solid var(--mist)}
+.masthead .grid{align-items:center;min-height:72px}
+.wordmark{grid-column:1 / 8;font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.wordmark em{font-style:italic;color:var(--soft)}
+.masthead .buy-link{grid-column:8 / -1;justify-self:end;font-weight:600;font-size:15px;color:var(--plum);text-decoration:none;padding:10px 0;min-height:44px;display:inline-flex;align-items:center}
+.masthead .buy-link:hover{text-decoration:underline}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--plum);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:18px 30px;border-radius:2px;min-height:56px;transition:background .2s}
+.btn:hover{background:var(--plum-deep);color:#fff}
+.btn .amt{font-family:var(--serif);font-size:22px;font-weight:400;padding-left:14px;border-left:1px solid rgba(255,255,255,.35)}
+
+/* Hero */
+.hero{padding:clamp(56px,9vw,120px) 0 clamp(64px,9vw,112px)}
+.hero-copy{grid-column:1 / 8;align-self:center}
+.kicker{font-size:16px;color:var(--soft);margin-bottom:28px;padding-left:18px;border-left:2px solid var(--plum)}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(46px,6.6vw,88px);line-height:.98;letter-spacing:-.025em;margin:0 0 32px}
+.hero .lead{font-family:var(--serif);font-size:clamp(20px,2vw,24px);line-height:1.45;color:var(--soft);max-width:30em;margin-bottom:40px}
+.hero .note{font-size:15px;color:var(--soft);margin-top:18px}
+
+/* The workbook object */
+.book-wrap{grid-column:9 / -1;align-self:center;perspective:1400px}
+.book{position:relative;background:var(--sheet);aspect-ratio:210/297;width:100%;max-width:400px;margin-left:auto;padding:12% 11% 10%;box-shadow:0 1px 0 var(--mist),14px 14px 0 -1px var(--paper),14px 14px 0 0 var(--mist),28px 28px 0 -1px var(--paper),28px 28px 0 0 var(--mist);display:flex;flex-direction:column}
+.book::before{content:"";position:absolute;inset:0 auto 0 0;width:9%;background:var(--ink)}
+.book-inner{margin-left:8%;display:flex;flex-direction:column;height:100%}
+.book .uk{font-size:13px;color:var(--soft);margin:0 0 14px}
+.book .t{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.2vw,40px);line-height:1;letter-spacing:-.02em;margin:0}
+.book .t em{font-style:italic;font-weight:300}
+.route-svg{display:block;width:100%;height:auto;margin:auto 0 18px}
+.route-svg path{fill:none;stroke:var(--plum);stroke-width:1.5}
+.route-svg circle{fill:var(--sheet);stroke:var(--ink);stroke-width:1.5}
+.route-svg circle.end{fill:var(--plum);stroke:var(--plum)}
+.book .field{display:flex;align-items:flex-end;gap:10px;font-size:12px;color:var(--soft);margin-top:8px}
+.book .field span.line{flex:1;border-bottom:1px solid var(--ink);height:1em}
+@media (prefers-reduced-motion:no-preference){
+  .route-svg path{stroke-dasharray:640;stroke-dashoffset:640;animation:draw 2.2s .4s cubic-bezier(.6,.1,.2,1) forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+}
+
+/* Section scaffolding */
+.sec{padding:clamp(64px,8vw,112px) 0;border-top:1px solid var(--mist)}
+.sec-head{grid-column:1 / 4}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,38px);line-height:1.08;letter-spacing:-.015em;margin:0 0 24px;position:sticky;top:32px}
+.sec-body{grid-column:4 / -1}
+
+/* Questions */
+.questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.q{padding:0 28px;border-left:1px solid var(--mist)}
+.q:first-child{padding-left:0;border-left:0}
+.q h3{font-family:var(--serif);font-style:italic;font-weight:300;font-size:26px;line-height:1.15;margin:0 0 16px}
+.q p{color:var(--soft);margin:0;font-size:16px}
+
+/* Route list (the ten parts, a real sequence) */
+.route{list-style:none;margin:0;padding:0;position:relative;counter-reset:part}
+.route::before{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:1px;background:var(--mist)}
+.route li{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:28px;padding:18px 0;counter-increment:part}
+.route li::before{content:counter(part);width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;position:relative;z-index:1}
+.route li:last-child::before{background:var(--plum);border-color:var(--plum);color:#fff}
+.route strong{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2;margin:7px 0 4px}
+.route span{display:block;color:var(--soft);max-width:44em}
+
+/* Ledger */
+.ledger-intro{max-width:40em;color:var(--soft)}
+.ledger{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums lining-nums;margin-top:32px;background:var(--sheet)}
+.ledger caption{text-align:left}
+.ledger th,.ledger td{padding:14px 20px;text-align:left;border-bottom:1px solid var(--mist);vertical-align:baseline}
+.ledger thead th{font-weight:500;font-size:14px;color:var(--soft);border-bottom:1px solid var(--ink)}
+.ledger td.n,.ledger th.n{text-align:right;white-space:nowrap}
+.ledger tr.total td{border-bottom:0;border-top:1px solid var(--ink);background:var(--sage);font-family:var(--serif);font-size:30px;font-weight:400;padding-top:20px;padding-bottom:20px}
+.ledger tr.total td:first-child{font-family:var(--sans);font-size:15px;font-weight:600}
+.ledger small{display:block;font-size:13px;color:var(--soft)}
+.table-box{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.pullquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(24px,2.6vw,32px);line-height:1.3;margin:48px 0 0;padding-left:28px;border-left:2px solid var(--plum);max-width:28em}
+
+/* FAQ */
+.faq details{border-bottom:1px solid var(--mist)}
+.faq details:first-child{border-top:1px solid var(--mist)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-family:var(--serif);font-size:22px;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:0 0 14px;height:14px;background:linear-gradient(var(--ink),var(--ink)) center/14px 1.5px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1.5px 14px no-repeat;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--soft);max-width:40em;margin:0 0 24px}
+
+/* Closing band */
+.close{background:var(--ink);color:#EDEAF2;padding:clamp(72px,10vw,128px) 0}
+.close h2{grid-column:1 / 8;font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-.02em;margin:0}
+.close .close-body{grid-column:8 / -1;align-self:end}
+.close p{color:#C9C3D3;margin-bottom:32px}
+.close .btn{background:#EDEAF2;color:var(--ink)}
+.close .btn:hover{background:#fff;color:var(--ink)}
+.close .btn .amt{border-left-color:rgba(35,31,46,.25)}
+
+footer{padding:40px 0 56px;font-size:14px;color:var(--soft)}
+footer .grid p{grid-column:1 / -1;margin:0 0 6px}
+
+/* Responsive */
+@media (max-width:960px){
+  .hero-copy{grid-column:1 / -1}
+  .book-wrap{grid-column:1 / -1;margin-top:56px}
+  .book{margin:0 auto;max-width:340px}
+  .sec-head,.sec-body{grid-column:1 / -1}
+  .sec-head h2{position:static}
+  .close h2,.close .close-body{grid-column:1 / -1}
+  .close .close-body{margin-top:32px}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .questions{grid-template-columns:minmax(0,1fr)}
+  .q,.q:first-child{padding:24px 0;border-left:0;border-top:1px solid var(--mist)}
+  .q:first-child{border-top:0;padding-top:0}
+  .wordmark{grid-column:1 / 9;font-size:17px}
+  .masthead .buy-link{grid-column:9 / -1}
+  .btn{width:100%;justify-content:center}
+  .ledger th,.ledger td{padding:12px 12px}
+  .ledger tr.total td{font-size:24px}
 }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#">The Solo Mum Route Planner</a>
-    <a class="btn small" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Get it — £19</a>
+<header class="masthead">
+  <div class="grid">
+    <a class="wordmark" href="#top">The Solo Mum <em>Route Planner</em></a>
+    <a class="buy-link" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Get it — £19</a>
   </div>
 </header>
 
-<main>
+<main id="top">
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow">For UK women going solo with donor sperm</p>
+  <div class="grid">
+    <div class="hero-copy">
+      <p class="kicker">For UK women going solo with donor sperm</p>
       <h1>Turn a scattered search into one plan you can act on</h1>
       <p class="lead">HFEA rules in plain English, what clinics and donor sperm really cost, whether your local NHS will help, and how to plan life as one parent — in a 20-page workbook you fill in.</p>
-      <div class="price-line">
-        <a class="btn" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Buy the workbook</a>
-        <span class="price">£19</span>
-      </div>
-      <p class="small-note">Instant PDF download after payment. Print it or type into it.</p>
+      <a class="btn" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Buy the workbook <span class="amt">£19</span></a>
+      <p class="note">Instant PDF download after payment. Print it or type into it.</p>
     </div>
-    <div class="cover" role="img" aria-label="Cover of The Solo Mum Route Planner workbook">
-      <span class="tag">WORKBOOK · 20 PAGES</span>
-      <span class="title">The Solo Mum Route Planner</span>
-      <span class="sub">UK edition</span>
-      <span class="foot">HFEA rules · clinic &amp; donor costs<br>NHS eligibility · planning as one parent</span>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>Three questions everyone asks</h2>
-    <div class="grid3">
-      <div class="card">
-        <h3>"Which clinic is cheapest?"</h3>
-        <p>The price per cycle is rarely the whole bill. Donor sperm, drugs, tests, scans and storage are where the surprises are.</p>
-      </div>
-      <div class="card">
-        <h3>"Will the NHS help me?"</h3>
-        <p>It depends on your postcode. Many areas ask single women to pay for 6–12 attempts at insemination first.</p>
-      </div>
-      <div class="card">
-        <h3>"Can I just use a donor at home?"</h3>
-        <p>You can, but outside a licensed clinic the donor can be your child's legal father. The rules matter before you start.</p>
+    <div class="book-wrap">
+      <div class="book" role="img" aria-label="Cover of The Solo Mum Route Planner workbook, UK edition, 20 pages">
+        <div class="book-inner" aria-hidden="true">
+          <p class="uk">UK edition, 20 pages</p>
+          <p class="t">The Solo Mum<br><em>Route Planner</em></p>
+          <svg class="route-svg" viewBox="0 0 240 150">
+            <path d="M12 130 C 60 130, 50 78, 96 78 S 140 112, 168 70 S 210 20, 228 20"/>
+            <circle cx="12" cy="130" r="5"/>
+            <circle cx="96" cy="78" r="5"/>
+            <circle cx="168" cy="70" r="5"/>
+            <circle class="end" cx="228" cy="20" r="6"/>
+          </svg>
+          <div class="field">My route<span class="line"></span></div>
+          <div class="field">Start date<span class="line"></span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>What's inside</h2>
-    <ul class="parts">
-      <li><strong>1. Your decision and timeline</strong><span>Honest prompts, fertility tests to ask about, a timeline worksheet</span></li>
-      <li><strong>2. The rules in plain English</strong><span>Licensed clinic vs known donor, legal parenthood, the 10-family limit, what your child can know at 16 and 18</span></li>
-      <li><strong>3. Choosing a clinic</strong><span>The questions to ask and a side-by-side comparison grid</span></li>
-      <li><strong>4. Choosing donor sperm</strong><span>UK vs overseas banks, how many vials, your donor priorities</span></li>
-      <li><strong>5. What it really costs</strong><span>IUI vs IVF, a worked example and your own cost builder</span></li>
-      <li><strong>6. NHS eligibility</strong><span>How ICB policies work, Scotland, Wales and NI, a GP appointment script</span></li>
-      <li><strong>7. Your funding plan</strong><span>Treatment pot and baby pot, with a worked savings example</span></li>
-      <li><strong>8. Planning as one parent</strong><span>Maternity pay, childcare, your village, will and guardian</span></li>
-      <li><strong>9. Telling your child's story</strong><span>Your own words for your child, nursery and strangers</span></li>
-      <li><strong>10. Your 90-day action plan</strong><span>Plus UK contacts and every source used</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <h2>A taste: budget for the route, not one cycle</h2>
-    <p>This worked example from the workbook uses published UK prices from late 2026. It is illustrative — your clinic's prices will differ.</p>
-    <div class="table-box">
-      <table>
-        <thead><tr><th>Item</th><th>3 × IUI</th><th>1 × IVF</th></tr></thead>
-        <tbody>
-          <tr><td>Initial consultation</td><td>£207</td><td>£207</td></tr>
-          <tr><td>Tests and screening</td><td>£693</td><td>£693</td></tr>
-          <tr><td>Donor sperm</td><td>£4,860 (3 vials)</td><td>£1,800 (1 vial)</td></tr>
-          <tr><td>Treatment fee</td><td>£3,600</td><td>£5,500</td></tr>
-          <tr><td>Drugs</td><td>£900</td><td>£1,500</td></tr>
-          <tr><td>Embryo freezing, first year</td><td>—</td><td>£384</td></tr>
-          <tr class="total"><td>Total</td><td>£10,260</td><td>£10,084</td></tr>
-        </tbody>
-      </table>
+<section class="sec">
+  <div class="grid">
+    <div class="sec-head"><h2>Three questions everyone asks</h2></div>
+    <div class="sec-body">
+      <div class="questions">
+        <div class="q">
+          <h3>"Which clinic is cheapest?"</h3>
+          <p>The price per cycle is rarely the whole bill. Donor sperm, drugs, tests, scans and storage are where the surprises are.</p>
+        </div>
+        <div class="q">
+          <h3>"Will the NHS help me?"</h3>
+          <p>It depends on your postcode. Many areas ask single women to pay for 6–12 attempts at insemination first.</p>
+        </div>
+        <div class="q">
+          <h3>"Can I just use a donor at home?"</h3>
+          <p>You can, but outside a licensed clinic the donor can be your child's legal father. The rules matter before you start.</p>
+        </div>
+      </div>
     </div>
-    <p class="callout">Similar totals, very different chances per attempt. The workbook helps you build your own version from your clinic's written quote.</p>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>Questions</h2>
-    <details>
-      <summary>Who is it for?</summary>
-      <p>Single women in England, Wales, Scotland or Northern Ireland who are thinking about, or starting, donor conception. Most of it applies whatever your age or stage.</p>
-    </details>
-    <details>
-      <summary>What format is it?</summary>
-      <p>A 20-page A4 PDF. You go straight to the download after paying. Print it, or fill it in with any PDF editor.</p>
-    </details>
-    <details>
-      <summary>How current is the information?</summary>
-      <p>Figures were checked in October 2026 against the HFEA, NICE (guideline NG257, March 2026), NHS and GOV.UK sources, all listed at the back. Prices and local NHS rules change, so the workbook shows you how to check your own.</p>
-    </details>
-    <details>
-      <summary>Is this medical or legal advice?</summary>
-      <p>No. It is general information to help you plan and ask better questions. Please talk to your GP, a licensed fertility clinic and, for any known-donor arrangement, a family solicitor.</p>
-    </details>
-    <details>
-      <summary>Something wrong with my download?</summary>
-      <p>Email <a href="mailto:info@baladanmeri.com">info@baladanmeri.com</a> and we'll sort it out.</p>
-    </details>
+<section class="sec">
+  <div class="grid">
+    <div class="sec-head"><h2>What's inside</h2></div>
+    <div class="sec-body">
+      <ol class="route">
+        <li><div><strong>Your decision and timeline</strong><span>Honest prompts, fertility tests to ask about, a timeline worksheet</span></div></li>
+        <li><div><strong>The rules in plain English</strong><span>Licensed clinic vs known donor, legal parenthood, the 10-family limit, what your child can know at 16 and 18</span></div></li>
+        <li><div><strong>Choosing a clinic</strong><span>The questions to ask and a side-by-side comparison grid</span></div></li>
+        <li><div><strong>Choosing donor sperm</strong><span>UK vs overseas banks, how many vials, your donor priorities</span></div></li>
+        <li><div><strong>What it really costs</strong><span>IUI vs IVF, a worked example and your own cost builder</span></div></li>
+        <li><div><strong>NHS eligibility</strong><span>How ICB policies work, Scotland, Wales and NI, a GP appointment script</span></div></li>
+        <li><div><strong>Your funding plan</strong><span>Treatment pot and baby pot, with a worked savings example</span></div></li>
+        <li><div><strong>Planning as one parent</strong><span>Maternity pay, childcare, your village, will and guardian</span></div></li>
+        <li><div><strong>Telling your child's story</strong><span>Your own words for your child, nursery and strangers</span></div></li>
+        <li><div><strong>Your 90-day action plan</strong><span>Plus UK contacts and every source used</span></div></li>
+      </ol>
+    </div>
   </div>
 </section>
 
-<section class="cta">
-  <div class="wrap">
+<section class="sec">
+  <div class="grid">
+    <div class="sec-head"><h2>A taste: budget for the route, not one cycle</h2></div>
+    <div class="sec-body">
+      <p class="ledger-intro">This worked example from the workbook uses published UK prices from late 2026. It is illustrative — your clinic's prices will differ.</p>
+      <div class="table-box">
+        <table class="ledger">
+          <thead><tr><th scope="col">Item</th><th scope="col" class="n">3 × IUI</th><th scope="col" class="n">1 × IVF</th></tr></thead>
+          <tbody>
+            <tr><td>Initial consultation</td><td class="n">£207</td><td class="n">£207</td></tr>
+            <tr><td>Tests and screening</td><td class="n">£693</td><td class="n">£693</td></tr>
+            <tr><td>Donor sperm</td><td class="n">£4,860<small>3 vials</small></td><td class="n">£1,800<small>1 vial</small></td></tr>
+            <tr><td>Treatment fee</td><td class="n">£3,600</td><td class="n">£5,500</td></tr>
+            <tr><td>Drugs</td><td class="n">£900</td><td class="n">£1,500</td></tr>
+            <tr><td>Embryo freezing, first year</td><td class="n">—</td><td class="n">£384</td></tr>
+            <tr class="total"><td>Total</td><td class="n">£10,260</td><td class="n">£10,084</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pullquote">Similar totals, very different chances per attempt. The workbook helps you build your own version from your clinic's written quote.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq">
+  <div class="grid">
+    <div class="sec-head"><h2>Questions</h2></div>
+    <div class="sec-body">
+      <details>
+        <summary>Who is it for?</summary>
+        <p>Single women in England, Wales, Scotland or Northern Ireland who are thinking about, or starting, donor conception. Most of it applies whatever your age or stage.</p>
+      </details>
+      <details>
+        <summary>What format is it?</summary>
+        <p>A 20-page A4 PDF. You go straight to the download after paying. Print it, or fill it in with any PDF editor.</p>
+      </details>
+      <details>
+        <summary>How current is the information?</summary>
+        <p>Figures were checked in October 2026 against the HFEA, NICE (guideline NG257, March 2026), NHS and GOV.UK sources, all listed at the back. Prices and local NHS rules change, so the workbook shows you how to check your own.</p>
+      </details>
+      <details>
+        <summary>Is this medical or legal advice?</summary>
+        <p>No. It is general information to help you plan and ask better questions. Please talk to your GP, a licensed fertility clinic and, for any known-donor arrangement, a family solicitor.</p>
+      </details>
+      <details>
+        <summary>Something wrong with my download?</summary>
+        <p>Email <a href="mailto:info@baladanmeri.com">info@baladanmeri.com</a> and we'll sort it out.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="grid">
     <h2>One written plan, in an afternoon</h2>
-    <p>Take it to your first clinic consultation and your GP appointment. Know what to ask, what it costs, and what comes next.</p>
-    <a class="btn" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Buy the workbook — £19</a>
+    <div class="close-body">
+      <p>Take it to your first clinic consultation and your GP appointment. Know what to ask, what it costs, and what comes next.</p>
+      <a class="btn" href="https://buy.stripe.com/4gM4gB7UI0AH2xZepF0oM04">Buy the workbook <span class="amt">£19</span></a>
+    </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <p>The Solo Mum Route Planner (UK) · Somerset Nomad · © 2026</p>
+  <div class="grid">
+    <p>The Solo Mum Route Planner (UK), Somerset Nomad, © 2026</p>
     <p>General information only — not medical, legal or financial advice. Payments are processed securely by Stripe.</p>
   </div>
 </footer>
